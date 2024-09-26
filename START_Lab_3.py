@@ -22,9 +22,13 @@ def lab3Question2(decimal_number):
     # Return "zero" if the number is 0, "positive" if the number is positive, and "negative" if the number is negative
     # Return "invalid" if the input is not a float
     #if not isinstance(decimal_number, float):
-    if not isinstance(decimal_number, float):
+    try:
+        decimal_number != float
+    except:
         return 'invalid'
-    elif decimal_number == 0:
+    
+
+    if decimal_number == 0:
         return 'zero'
     elif decimal_number > 0:
         return 'positive'
@@ -45,8 +49,10 @@ def lab3Question3(year):
     # "ancient" if the year is older
     # "invalid" if the input is not an acceptable year number. 
     
-    if not isinstance(year, int):
-        return "invalid"
+    try:
+        year != int(year)
+    except:
+        return 'invalid'
        
     if year > 2001 and year < 2100:
         return "21st century"
