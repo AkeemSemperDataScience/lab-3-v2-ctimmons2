@@ -21,16 +21,21 @@ def lab3Question2(decimal_number):
     # Take in an argument of a float (decimal) number.
     # Return "zero" if the number is 0, "positive" if the number is positive, and "negative" if the number is negative
     # Return "invalid" if the input is not a float
-    if decimal_number == 0:
+    #if not isinstance(decimal_number, float):
+    if not isinstance(decimal_number, float):
+        return 'invalid'
+    elif decimal_number == 0:
         return 'zero'
-    if decimal_number > 0:
+    elif decimal_number > 0:
         return 'positive'
-    if decimal_number < 0:
+    elif decimal_number < 0:
         return 'negative'
     
-#print(lab3Question2(0))
+    
+    
+#print(lab3Question2(5.0))
 #print(lab3Question2(10))
-#print(lab3Question2(-10))
+#print(lab3Question2(-10.1))
 
 def lab3Question3(year):
     # Take in a number that represents a year
@@ -40,9 +45,7 @@ def lab3Question3(year):
     # "ancient" if the year is older
     # "invalid" if the input is not an acceptable year number. 
     
-    try:
-        year = int(year) 
-    except ValueError:
+    if not isinstance(year, int):
         return "invalid"
        
     if year > 2001 and year < 2100:
@@ -57,8 +60,8 @@ def lab3Question3(year):
     if year < 1800:
         return "ancient"
     
-#print(lab3Question3('neer'))
-#print(lab3Question3(10))
+print(lab3Question3('neer'))
+print(lab3Question3(10))
 #print(lab3Question3(2050))
 #print(lab3Question3(1950))
 #print(lab3Question3(1850))
@@ -71,19 +74,26 @@ def lab3Question4(number_1, number_2, number_3):
     # Return None if the inputs are not 3 numbers
 
     #check for numeric number input
-    try:
-        number_1 = int(number_1)
-        number_2 = int(number_2) 
-        number_3 = int(number_3) 
-    except ValueError:
+    if not isinstance(number_1, int):
+            return None
+    elif not isinstance(number_2, int):
+         return None
+    elif not isinstance(number_3, int):
+        return None
+    
+    #try:
+    #    number_1 = int(number_1)
+    #    number_2 = int(number_2) 
+    #    number_3 = int(number_3) 
+    #except ValueError:
         return None
     
     
     largest = max(number_1, number_2, number_3)
     return (largest)
 
-#print(lab3Question4(2050, 20161, 201010))
-#print(lab3Question4(2050, 20161, 'beer'))
+print(lab3Question4(2050, 20161, 201010))
+print(lab3Question4(2050, 20161, 'beer'))
 
 
 def lab3Question5(temperature, scale_used):
@@ -94,7 +104,7 @@ def lab3Question5(temperature, scale_used):
     # Return "Invalid" if the temperature or scale are invalid
     
     try:
-        scale_used != 'C' or 'D'
+        scale_used != 'C' or 'F'
         temperature == int(temperature)
     except ValueError:
         return 'Invalid'
